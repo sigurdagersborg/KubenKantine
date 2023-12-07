@@ -1,6 +1,5 @@
 <?php
 require_once 'include/config_session.inc.php';
-require_once 'include/edit_user/edit_view.inc.php';
 require_once "include/dbconn.php";
 require_once "include/meny.inc.php";
 

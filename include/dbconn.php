@@ -2,7 +2,7 @@
     $host = 'localhost';
     $user = 'root';
     $pass = '';
-    $db = 'terminoppgave_vg2';
+    $db = 'KubenKantine';
     
     
     try {
@@ -11,4 +11,3 @@
     } catch (PDOException $e) {
         die("Connection failed: ".  $e->getMessage());
     }
-?>

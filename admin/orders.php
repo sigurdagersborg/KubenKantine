@@ -92,7 +92,7 @@ $Bestillinger = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 <input type="checkbox" name="isPickedUp[]" value="<?= $bestilling['Bestillingsnummer'] ?>" <?= $bestilling['isPickedUp'] ? 'checked' : '' ?>>
                             </td>
                             <td>
-                                <a href="edit_order.php?id=<?= $bestilling['Bestillingsnummer'] ?>" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="edit_order.php?bestillingsnummer=<?= $bestilling['Bestillingsnummer'] ?>" class="btn btn-primary btn-sm">Edit</a>
                                 <a href="delete_order.php?id=<?= $bestilling['Bestillingsnummer'] ?>" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2023 at 09:58 AM
+-- Generation Time: May 31, 2024 at 08:23 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `terminoppgave_vg2`
+-- Database: `kubenkantine`
 --
 
 -- --------------------------------------------------------
@@ -57,6 +57,28 @@ INSERT INTO `bestilling` (`Bestillingsnummer`, `Kundenummer`, `Bestillingsdato`,
 (23, 21, '2023-12-04 10:13:53', 0, 0),
 (24, 21, '2023-12-04 10:13:57', 0, 0),
 (25, 21, '2023-12-04 10:14:03', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faq`
+--
+
+CREATE TABLE `faq` (
+  `id` int(11) NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `answer` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `faq`
+--
+
+INSERT INTO `faq` (`id`, `question`, `answer`) VALUES
+(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '),
+(2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '),
+(3, 'How do I create an appointment?', 'Go to the calender, if you have the correct rights there is a form underneath.'),
+(4, 'If i dont have rights to create appointments, how do I get it?', 'Only Administrator can change users rights. Ask your Administrator, they will need your username or email.');
 
 -- --------------------------------------------------------
 
@@ -181,6 +203,12 @@ ALTER TABLE `bestilling`
   ADD KEY `Kundenummer` (`Kundenummer`);
 
 --
+-- Indexes for table `faq`
+--
+ALTER TABLE `faq`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `produkter`
 --
 ALTER TABLE `produkter`
@@ -210,6 +238,12 @@ ALTER TABLE `bestilling`
   MODIFY `Bestillingsnummer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
+-- AUTO_INCREMENT for table `faq`
+--
+ALTER TABLE `faq`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `produkter`
 --
 ALTER TABLE `produkter`
@@ -220,23 +254,6 @@ ALTER TABLE `produkter`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `bestilling`
---
-ALTER TABLE `bestilling`
-  ADD CONSTRAINT `bestilling_ibfk_1` FOREIGN KEY (`Kundenummer`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `produkt_i_bestilling`
---
-ALTER TABLE `produkt_i_bestilling`
-  ADD CONSTRAINT `fk_produkt_i_bestilling_bestilling` FOREIGN KEY (`Bestillingsnummer`) REFERENCES `bestilling` (`Bestillingsnummer`),
-  ADD CONSTRAINT `produkt_i_bestilling_ibfk_2` FOREIGN KEY (`ProduktID`) REFERENCES `produkter` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

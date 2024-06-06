@@ -1,5 +1,5 @@
 <?php
-$query = "SELECT * FROM Bestilling WHERE isPickedUp = 0";
+$query = "SELECT * FROM bestilling WHERE isPickedUp = 0";
 $statement = $pdo->prepare($query);
 $statement->execute();
 $bestillinger = $statement->fetchAll(PDO::FETCH_ASSOC);

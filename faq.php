@@ -41,6 +41,17 @@ require_once 'include/dbconn.php';
         ?>
     </div>
     
+    <h2>Flere spørsmål?</h2>
+    <form action="" method="post">
+        <div class="form-group">
+            <label for="question">Spørsmål:</label>
+            <input type="text" class="form-control" id="question" name="question" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Send inn</button>
+    </form>
+
+
+
 </div>
 
 </body>

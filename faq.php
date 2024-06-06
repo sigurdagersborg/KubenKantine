@@ -51,6 +51,24 @@ require_once 'include/dbconn.php';
     </form>
 
 
+    <?php
+    //sjekke om formen er sendt inn
+    if (isset($_POST["question"])) {
+       $question = $_POST["question"];
+       
+       $query = "INSERT INTO faq (question) VALUES (:question);";
+       $stmt = $pdo->prepare($query);
+       $stmt->bindParam(':question', $question);
+       $stmt->execute();
+
+
+    }
+
+
+
+
+
+    ?>
 
 </div>
 
